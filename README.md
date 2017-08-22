@@ -11,6 +11,8 @@
 
 ## Run
 
-`cd ~/catkin_ws`
-`catkin_make`
-`roslaunch rainbow_dash_ground_control xbox_control.launch`
+```
+cd ~/catkin_ws
+catkin_make
+roslaunch rainbow_dash_ground_control xbox_control.launch
+```

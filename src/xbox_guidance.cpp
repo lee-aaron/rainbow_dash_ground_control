@@ -69,8 +69,8 @@ For the sticks, -1 is down/right, 1 is up/left, 0 is untouched
   ud=msg->axes[4];
  
   // Right Stick Safe Zones
-  lr=(abs(lr)<0.1)?0:lr;
-  ud=(abs(ud)<0.1)?0:ud;
+  //lr=(abs(lr)<0.1)?0:lr;
+  //ud=(abs(ud)<0.1)?0:ud;
 
   // Set Controls
   controls[3]=lr;
