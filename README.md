@@ -2,10 +2,15 @@
 
 ## Install Dependencies
 
-[https://github.com/ros-drivers/joystick_drivers]([ROS PKG] joystick_drivers)
+#### Required ROS Packages:
+[joystick_drivers](https://github.com/ros-drivers/joystick_drivers)
+
+#### Terminal Dependencies
 
 `sudo apt install libusb-dev libspnav-dev libbluetooth-dev libcwiid-dev`
 
 ## Run
 
-`roslaunch ground_control/launch/xbox_control.launch`
+`cd ~/catkin_ws`
+`catkin_make`
+`roslaunch rainbow_dash_ground_control xbox_control.launch`
