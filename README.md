@@ -1,4 +1,6 @@
-# [ROS] GROUND CONTROL
+# [ROS] Ground Control for the Rainbow Dash Rover
+
+Yonder Dynamics, 2017
 
 ## Install Dependencies
 
