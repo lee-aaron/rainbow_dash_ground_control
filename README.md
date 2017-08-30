@@ -11,6 +11,19 @@ Yonder Dynamics, 2017
 
 `sudo apt install libusb-dev libspnav-dev libbluetooth-dev libcwiid-dev`
 
+Find your IP with:
+`hostname -i`
+
+add the following to your ~/.bashrc:
+```
+export ROS_IP=<IP>
+export ROS_HOSTNAME=<IP>
+export ROS_MASTER_URI=http://<IP>:11311
+```
+
+and then:
+`source ~/.bashrc`
+
 ## Run
 
 ```
@@ -18,3 +31,5 @@ cd ~/catkin_ws
 catkin_make
 roslaunch rainbow_dash_ground_control xbox_control.launch
 ```
+
+
