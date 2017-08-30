@@ -12,7 +12,7 @@ Yonder Dynamics, 2017
 `sudo apt install libusb-dev libspnav-dev libbluetooth-dev libcwiid-dev`
 
 Find your IP with:
-`hostname -i`
+`hostname -I` (case sensitive)
 
 add the following to your ~/.bashrc:
 ```
