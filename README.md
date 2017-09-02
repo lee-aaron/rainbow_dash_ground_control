@@ -7,6 +7,7 @@ Yonder Dynamics, 2017
 ##### Required ROS Packages:
 [joystick_drivers](https://github.com/ros-drivers/joystick_drivers)
 [roslibjs](https://github.com/RobotWebTools/roslibjs)
+[rosbridge-server](sudo apt-get install ros-<rosdistro>-rosbridge-server)
 
 ##### Terminal Dependencies
 
