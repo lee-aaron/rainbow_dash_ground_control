@@ -19,9 +19,9 @@
 
 */
 std::vector<float> controls(23,0.0);
+int diff;
 
 void joyCallback(const sensor_msgs::Joy::ConstPtr& msg) {
-
 
 /*
 
@@ -73,8 +73,17 @@ For the sticks, -1 is down/right, 1 is up/left, 0 is untouched
   //ud=(abs(ud)<0.1)?0:ud;
 
   // Set Controls
-  controls[3]=truncf(lr*10)/10;
-  controls[4]=truncf(ud*10)/10;
+  lr=truncf(lr*10)/10;
+  ud=truncf(ud*10)/10;
+
+  if( controls[3] != lr ) {
+    controls[3] = lr;
+    diff=1;
+  }
+  if( controls[4] != ud ) {
+    controls[4] = ud;
+    diff=1;
+  }
 }
 
 /**
@@ -94,7 +103,11 @@ int main(int argc, char **argv) {
 
   while (ros::ok()) {
     controlData.data=controls;
-    pub.publish(controlData);
+
+    if(diff) {
+       pub.publish(controlData);
+       diff=0; 
+    }
     
     if( val.data != controls[4] ) {
       val.data=controls[4];
