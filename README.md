@@ -4,13 +4,15 @@ Yonder Dynamics, 2017
 
 ## Install Dependencies
 
-#### Required ROS Packages:
+##### Required ROS Packages:
 [joystick_drivers](https://github.com/ros-drivers/joystick_drivers)
+[roslibjs](https://github.com/RobotWebTools/roslibjs)
 
-#### Terminal Dependencies
+##### Terminal Dependencies
 
 `sudo apt install libusb-dev libspnav-dev libbluetooth-dev libcwiid-dev`
 
+##### Setting up Ground Station as the master roscore
 Find your IP with:
 `hostname -I` (case sensitive)
 
