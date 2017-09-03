@@ -1,0 +1,211 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>terra-ui</title>
+  <meta name="description" content="FUI for Rover Operations">
+  <meta name="author" content="ServiceDog">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <script src="js/googlemap.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGHXMBujIWzzc8NpdTojCipCE69tcc49U&callback=initMap"></script>
+  <script src="js/clocker.js"></script>
+  <script src="js/scripts.js"></script>
+
+  <script type="text/javascript" src="http://cdn.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+  <script type="text/javascript" src="http://cdn.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+
+   <script type="text/javascript" type="text/javascript">
+	var ros = new ROSLIB.Ros({
+		url : 'ws://localhost:9090'
+	});
+
+	ros.on('connection', function() {
+		console.log('Connected to websocket server.');
+	});
+
+	var videoRGB = new ROSLIB.Topic({
+		ros : ros,
+		name : '/camera/image',
+		messageType : 'sensor_msgs/Image'
+	});
+	
+	videoRGB.subscribe(function(message) {
+		
+	});
+	
+	var videoIR = new ROSLIB.Topic({
+		ros : ros,
+		name : '/camera/image',
+		messageType : 'sensor_msgs/Image'
+	});
+	
+	videoIR.subscribe(function(message) {
+		
+	});
+   
+	var velocity = new ROSLIB.Topic({
+		ros : ros,
+		name : '/velocity',
+		messageType : 'std_msgs/Float32'
+	});
+	
+	velocity.subscribe(function(message) {
+		
+	});
+
+   </script>
+
+</head>
+
+<body>
+
+  <!-- LEFT SIDE PANEL -->
+  <div class="panel" id="left">
+
+    <!-- Status Panel -->
+    <div class="module" id="status">
+      <b>STATUS</b>
+      <p>HOST CONNECTION</p>
+      <p>XBOX CONTROLLER</p>
+      <p><b>MODE</b></p>
+      <p>TELEOPERATED</p>
+      <p>AUTONOMOUS</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- GPS Panel -->
+    <div class="module" id="GPS"></div>
+
+    <div class="divider"></div>
+
+    <!-- Logo -->
+    <div class="module" id="logo">
+      LOGO
+      <!--<img class="logo" src="img/1.png" alt="Smiley face">
+      -->
+    </div>
+  </div>
+
+
+  <!-- FEEDS, PHOTOS -->
+  <div class="panel" id="middle">
+
+      <video id="mainfeed" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
+          <source src="mp4/drive.mp4" type="video/mp4">
+      </video>
+
+    <div class="divider"></div>
+
+    <video class="subfeed" id="hand" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
+        <source src="mp4/drill.mp4" type="video/mp4">
+    </video>
+    <video class="subfeed" id="rear" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
+        <source src="mp4/rearcam.mp4" type="video/mp4">
+    </video>
+
+  </div>
+
+  <!-- POWER, MISSION LOG, TIMER -->
+  <div class="panel" id="right">
+    <div class="module" id="power"><b>POWER</b></div>
+    <div class="divider"></div>
+
+    <div class="module" id="drive">
+      <div class="drive_stat" id="mph">10<b id="mphunits"> MPH</b></div>
+      <div class="drive_stat" id="distances">
+        <div class="distance_stat" id="dtraveled">124.23<b class="dunits"> M</b></div>
+        <div class="distance_stat" id="dremaining">53.1<b class="dunits"> M</b></div>
+      </div>
+
+    </div>
+    <div class="divider"></div>
+
+    <div class="module" id="log">
+      <b>MISSION LOG</b>
+      <div id="logbox">
+        <p><b>19:28</b> | Testing 1 2 3...</p>
+        <p><b>19:28</b> | This is Geisel</p>
+        <p><b>19:28</b> | It is full of sad people</p>
+
+      </div><!--
+      <form name="message" action="">
+        <input name="usermsg" type="text" id="usermsg" size="63" />
+        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+      </form>-->
+      <script>
+        function post() {
+           /*
+          var time = new Date(Date.parse(new Date()));
+          var input = document.getElementById('#usermsg').value;
+          var start="<p><b>";
+          var sep = " |</b> ";
+          var end = "</p>";
+          var full = start.concat(time, sep.concat(input, end));*/
+          document.getElementById('#logbox').innerHTML('test');
+
+        }
+
+        document.getElementById("submitmsg").addEventListener("click", post);
+
+      </script>
+
+    </div>
+
+
+    <div class="divider"></div>
+
+    <div class="module" id="timer">
+        <div class="time" id="hours"></div>
+        <div class="time" id="minutes"></div>
+        <div class="time" id="seconds"></div>
+    </div>
+
+      <script>
+        function getTimeElapsed(start) {
+          var t = Date.parse(new Date())-Date.parse(start);
+          var seconds = Math.floor((t / 1000) % 60);
+          var minutes = Math.floor((t / 1000 / 60) % 60);
+          var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+          return {
+            'total': t,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+          };
+        }
+
+        function initializeClock(id, starttime) {
+          var clock = document.getElementById(id);
+          var hoursSpan = clock.querySelector('#hours');
+          var minutesSpan = clock.querySelector('#minutes');
+          var secondsSpan = clock.querySelector('#seconds');
+
+          function updateClock() {
+            var t = getTimeElapsed(starttime);
+
+            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+            if (t.total <= 0) {
+              clearInterval(timeinterval);
+            }
+          }
+
+          updateClock();
+          var timeinterval = setInterval(updateClock, 1000);
+        }
+
+        var start = new Date(Date.parse(new Date()));
+        initializeClock('timer', start);
+
+      </script>
+  </div>
+
+
+</body>
+</html>
