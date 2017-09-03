@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="rainbow_dash_ground_control" type="gui" name="gui" />
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+     <arg name="port" value="8080"/>
+  </include>
+
+</launch>
