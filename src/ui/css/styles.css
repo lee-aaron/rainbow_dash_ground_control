@@ -211,6 +211,18 @@ body {
   border: 1px solid white;
 }
 
+.time-buttondiv {
+  position: relative;
+  width: 100%;
+  padding-top: 10px;  
+}
+
+.time-button {
+  text-align: center;
+  background-color: #00bbff;
+  border-radius: 5px;
+}
+
 /*Bottom Panel for layout change */
 .bottom {
   position: relative;
@@ -223,10 +235,11 @@ body {
 
 .button {
   border-radius: 5px;
-  margin: auto; 
+  margin: auto;
+  background-color: #00d8ff; 
 }
 
 .button:hover {
-  background-color: #a1c1f4;
+  background-color: #0061ff;
   color: white;
 }
