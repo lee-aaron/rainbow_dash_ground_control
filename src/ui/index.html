@@ -8,7 +8,7 @@
   <meta name="description" content="FUI for Rover Operations">
   <meta name="author" content="ServiceDog">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="js/googlemap.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGHXMBujIWzzc8NpdTojCipCE69tcc49U&callback=initMap"></script>
   <script src="js/clocker.js"></script>
@@ -94,9 +94,9 @@
   <!-- FEEDS, PHOTOS -->
   <div class="panel" id="middle">
 
-      <video id="mainfeed" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
-          <source src="mp4/drive.mp4" type="video/mp4">
-      </video>
+    <video id="mainfeed" autoplay="autoplay" muted="muted" preload="auto" loop="loop">
+      <source src="mp4/drive.mp4" type="video/mp4">
+    </video>
 
     <div class="divider"></div>
 
@@ -204,6 +204,15 @@
         initializeClock('timer', start);
 
       </script>
+  </div>
+
+  <!-- Buttons to change panel setup --!>
+  <div class="bottom" id="setup">
+     <button type="button" class="button panel-one">Set 1</button>
+     <button type="button" class="button panel-two">Set 2</button>
+     <button type="button" class="button panel-three">Set 3</button>
+     <button type="button" class="button panel-four">Set 4</button>
+     <button type="button" class="button panel-five">Set 5</button>
   </div>
 
 

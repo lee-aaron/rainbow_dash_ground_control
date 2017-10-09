@@ -210,3 +210,23 @@ body {
   width:auto;
   border: 1px solid white;
 }
+
+/*Bottom Panel for layout change */
+.bottom {
+  position: relative;
+  margin: auto;
+  padding: 10px;
+  width: 1600px; /*Change from hardcode*/
+  top: 5%; 
+  text-align: center;
+}
+
+.button {
+  border-radius: 5px;
+  margin: auto; 
+}
+
+.button:hover {
+  background-color: #a1c1f4;
+  color: white;
+}
