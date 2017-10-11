@@ -189,15 +189,35 @@ body {
   font-size: 10px;
 }
 
+input[type=text] { 
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid cyan;
+  background-color: transparent;
+  color: cyan;
+  width: 80%;
+  position: absolute;
+  bottom: 7%;
+}
+
+input[type=submit] {
+  background-color: transparent;
+  color: cyan;
+  border: 1px solid cyan;
+  position: absolute;
+  right: 3%;
+  bottom: 7%;
+}
+
 #timer{
   text-align: center;
 }
 
 .time {
-  margin-top:13%;
+  margin-top:5%;
   position: relative;
   line-height: 100%;
-	display: inline-block;
+  display: inline-block;
   font-size: 80px;
   letter-spacing: -5px;
   text-shadow: 1px 1px 10px #FFF;
@@ -214,13 +234,21 @@ body {
 .time-buttondiv {
   position: relative;
   width: 100%;
-  padding-top: 10px;  
+  padding-top: 5%;
+  padding-bottom: 5%;  
 }
 
 .time-button {
   text-align: center;
-  background-color: #00bbff;
+  background-color: transparent;
+  color: cyan;
+  border: 1px solid cyan;
   border-radius: 5px;
+}
+
+.time-button:hover {
+  background-color: #0061ff;
+  color:white;
 }
 
 /*Bottom Panel for layout change */
@@ -236,7 +264,9 @@ body {
 .button {
   border-radius: 5px;
   margin: auto;
-  background-color: #00d8ff; 
+  background-color: transparent;
+  color: cyan;
+  border: 1px solid cyan;
 }
 
 .button:hover {

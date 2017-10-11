@@ -26,7 +26,8 @@ Ground Control GUI
 
 - [x] Perspective tilt on left and right panels
 - [x] Gradient
-- [ ] Hologram effect
+- [ ] Hologram Effect
+- [ ] Background Fantasy UI Effect
 
 # Left Panel
 
@@ -88,3 +89,8 @@ Ground Control GUI
 - [x] Placeholder
 - [ ] Start, Reset, Pause
 - [ ] Styled
+
+#Bottom Panel
+
+### Panel Setup Switch
+- [X] Placeholders
