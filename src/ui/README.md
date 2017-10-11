@@ -28,6 +28,7 @@ Ground Control GUI
 - [x] Gradient
 - [ ] Hologram Effect
 - [ ] Background Fantasy UI Effect
+- [ ] WebGL Support for animations?
 
 # Left Panel
 
@@ -90,7 +91,7 @@ Ground Control GUI
 - [ ] Start, Reset, Pause
 - [ ] Styled
 
-#Bottom Panel
+# Bottom Panel
 
 ### Panel Setup Switch
 - [X] Placeholders
